@@ -17,4 +17,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  sanity: {
+    projectId: "c0oa8gno",
+    dataset: "production",
+  },
 })
