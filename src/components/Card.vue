@@ -1,40 +1,49 @@
 <script setup>
+import { defineProps } from 'vue'
+
 const props = defineProps({
     title: String,
     summary: String,
     image: String,
-    href: {
+    portofolioId: {
         type: String,
-        default: '#'
+        required: true
+    },
+    overlayClass: {
+        type: String,
+        default: 'bg-orange-500 bg-opacity-80'
     }
 })
 </script>
 
 <template>
-    <a :href="href"
-        class="block bg-pink rounded-lg shadow-md hover:shadow-xl overflow-hidden transition-shadow duration-300 group">
-        <!-- Image -->
-        <div class="relative overflow-hidden h-48">
-            <img :src="image" :alt="title"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+    <router-link :to="{ name: 'portofolio-detail', params: { id: portofolioId } }"
+        class="block rounded-lg shadow-md overflow-hidden group relative">
+        <div class="relative">
+            <div class="relative h-64 overflow-hidden">
+                <img :src="image" :alt="title"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+            </div>
+            <div class="p-6 bg-white">
+                <h3 class="text-lg font-semibold mb-2 text-gray-900">
+                    {{ title }}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                    {{ summary }}
+                </p>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                :class="overlayClass">
+                <span class="text-white text-2xl font-semibold">See more</span>
+            </div>
         </div>
-        <!-- Content -->
-        <div class="p-6">
-            <h3 class="text-lg font-semibold mb-2 text-gray-900 transition-colors duration-200">
-                {{ title }}
-            </h3>
-            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                {{ summary }}
-            </p>
-        </div>
-    </a>
+    </router-link>
 </template>
 
 <style scoped>
 .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

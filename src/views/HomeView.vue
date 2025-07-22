@@ -1,24 +1,34 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Parallax } from 'swiper/modules'
+import { Parallax, Autoplay } from 'swiper/modules'
 import Card from '../components/Card.vue'
 import { useHomeCard } from '../../composables/useHomeCard'
 
 import 'swiper/css'
 import 'swiper/css/parallax'
+import 'swiper/css/autoplay'
 
 const homeCards = ref([])
-const modules = [Parallax]
+const modules = [Parallax, Autoplay]
 
 const swiperOptions = {
-  parallax: true,
-  slidesPerView: 'auto',
-  spaceBetween: 20,
-  centeredSlides: true,
+  loop: true,
   speed: 800,
+  parallax: true,
+  grabCursor: true,
+  spaceBetween: 1,
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
   breakpoints: {
-    768: {
+    480: {
+      slidesPerView: 2
+    },
+    1024: {
       slidesPerView: 3
     }
   }
@@ -26,7 +36,6 @@ const swiperOptions = {
 
 onMounted(async () => {
   const allCards = await useHomeCard()
-  // Limit to 5 cards only
   homeCards.value = allCards.slice(0, 5)
 })
 </script>
@@ -42,11 +51,13 @@ onMounted(async () => {
       <div class="absolute py-4 px-5 bg-[#D782BA] left-2 bottom-2"></div>
     </div>
     <!-- Top Right Image -->
-    <img src="../assets/[1]-home.svg" alt="nature image" class="absolute w-30 md:w-60 top-1/8 md:top-1/7 right-1/16 object-cover" />
+    <img src="../assets/[1]-home.svg" alt="nature image"
+      class="absolute w-30 md:w-60 top-1/8 md:top-1/7 right-1/16 object-cover" />
     <!-- Down Left Image -->
-    <img src="../assets/[2]-home.svg" alt="art image" class="absolute w-20 h-20 left-1/20 bottom-3/7 md:bottom-2/5 lg:bottom-1/3 object-cover" />
+    <img src="../assets/[2]-home.svg" alt="art image"
+      class="absolute w-20 h-20 left-1/20 bottom-3/7 md:bottom-2/5 lg:bottom-1/3 object-cover" />
     <!-- Hero Text -->
-    <div class="relative flex flex-col gap-2 z-100 pl-0 lg:pl-20 text-center lg:text-start">
+    <div class="relative flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center lg:text-start">
       <div class="flex flex-col lg:flex-row gap-4 text-6xl md:text-8xl text-[#C35B3F]">
         <span>Hello I'm </span>
         <span class="font-[LibreBodoni] italic text-black">Daylene</span>
@@ -68,37 +79,39 @@ onMounted(async () => {
     <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
       <img src="../assets/[3]-home.svg" alt="a person planting a tree" class="w-auto object-cover" />
       <div class="flex flex-col items-center justify-center gap-12">
-        <p class="text-2xl text-center lg:text-start text-wrap">Hey there! I'm Daylene, a Bogor‑based creative graphic designer passionate about telling
+        <p class="text-2xl text-center lg:text-start text-wrap">Hey there! I'm Daylene, a Bogor‑based creative graphic
+          designer passionate about telling
           stories through color, type, and layout. Every project is an opportunity to learn—and to leave a lasting
           impression.</p>
-        <router-link to="/about" class="flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-8xl underline w-min lg:w-full">About me <img
-            src="../assets/arrow-upRight.svg" alt="arrow" class="no-underline w-min"></router-link>
+        <router-link to="/about"
+          class="flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-8xl underline w-min lg:w-full">About
+          me <img src="../assets/arrow-upRight.svg" alt="arrow" class="no-underline w-min"></router-link>
       </div>
     </div>
   </section>
 
   <!-- WORK PARALLAX SECTION -->
-  <section class="h-screen w-full flex flex-col items-center justify-center gap-20">
+  <section class="h-screen w-full flex flex-col items-center justify-around">
     <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0 px-8">
       <h2 class="text-8xl text-[#C35B3F]">My Work</h2>
-      <p class="w-full lg:w-1/3">Fresh from the sketchbook—real problems I've tackled with design. Click any card to dive in.</p>
+      <p class="w-full lg:w-1/3">Fresh from the sketchbook—real problems I've tackled with design. Click any card to
+        dive in.</p>
     </div>
-    <div class="w-full h-fit">
-      <Swiper :modules="modules" v-bind="swiperOptions" class="h-full">
-        
-        <SwiperSlide v-for="(item, index) in homeCards" :key="item._id">
-          <div data-swiper-parallax="-100">
-            <Card 
-              :title="item.title" 
-              :summary="item.summary" 
-              :image="item.imageUrl"
-              :href="`/project/${item.slug || item._id}`" 
-            />
-          </div>
-        </SwiperSlide>
 
-      </Swiper>
-    </div>
+    <Swiper :modules="modules" v-bind="swiperOptions" class="h-96 w-full">
+
+      <SwiperSlide v-for="(item) in homeCards" :key="item._id">
+        <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
+          <Card :title="item.title" :summary="item.summary" :image="item.imageUrl" :portofolio-id="item._id"
+            overlay-class="bg-orange-500">
+            <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
+              See more
+            </div>
+          </Card>
+        </div>
+      </SwiperSlide>
+
+    </Swiper>
   </section>
 </template>
 

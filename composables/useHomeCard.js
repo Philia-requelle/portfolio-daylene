@@ -1,4 +1,3 @@
-// composables/useHomeCard.js
 import { fetchSanity, urlFor } from './useSanity'
 
 export const useHomeCard = async () => {
@@ -13,6 +12,11 @@ export const useHomeCard = async () => {
 
   return data.map(item => ({
     ...item,
-    imageUrl: urlFor(item.mainImage).width(600).height(400).url(),
+    imageUrl: urlFor(item.mainImage)
+      .width(400)
+      .height(300)
+      .fit('fill')
+      .quality(85)
+      .url(),
   }))
 }
