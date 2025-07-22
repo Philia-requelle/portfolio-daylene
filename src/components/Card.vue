@@ -18,11 +18,11 @@ const props = defineProps({
 
 <template>
     <router-link :to="{ name: 'portofolio-detail', params: { id: portofolioId } }"
-        class="block rounded-lg shadow-md overflow-hidden group relative">
+        class="block rounded-lg border adow-md overflow-hidden group relative">
         <div class="relative">
-            <div class="relative h-64 overflow-hidden">
+            <div class="relative h-64 overflow-hidden w-full md:w-[30rem]">
                 <img :src="image" :alt="title"
-                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                    class="p-2 rounded-2xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
             </div>
             <div class="p-6 bg-white">
                 <h3 class="text-lg font-semibold mb-2 text-gray-900">
