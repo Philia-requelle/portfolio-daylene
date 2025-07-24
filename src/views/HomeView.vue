@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Parallax, Autoplay } from 'swiper/modules'
 import Card from '../components/Card.vue'
+import { useAboutHome } from '../../composables/useAboutHome'
 import { useHomeCard } from '../../composables/useHomeCard'
 
 import 'swiper/css'
@@ -10,6 +11,7 @@ import 'swiper/css/parallax'
 import 'swiper/css/autoplay'
 
 const homeCards = ref([])
+const aboutHome = ref({ description: '', aboutImageUrl: '' });
 const modules = [Parallax, Autoplay]
 
 const swiperOptions = {
@@ -37,6 +39,7 @@ const swiperOptions = {
 onMounted(async () => {
   const allCards = await useHomeCard()
   homeCards.value = allCards.slice(0, 5)
+  aboutHome.value = await useAboutHome()
 })
 </script>
 
@@ -77,12 +80,9 @@ onMounted(async () => {
   <!-- ABOUT SUMMARY SECTION -->
   <section class="bg-[#C35B3F] text-white px-14 h-screen w-full flex flex-col items-center justify-center">
     <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
-      <img src="../assets/[3]-home.svg" alt="a person planting a tree" class="w-auto object-cover" />
+      <img :src="aboutHome.aboutImageUrl" alt="About image" class="w-auto object-cover" />
       <div class="flex flex-col items-center justify-center gap-12">
-        <p class="text-2xl text-center lg:text-start text-wrap">Hey there! I'm Daylene, a Bogor‑based creative graphic
-          designer passionate about telling
-          stories through color, type, and layout. Every project is an opportunity to learn—and to leave a lasting
-          impression.</p>
+        <p class="text-2xl text-center lg:text-start text-wrap line-clamp-3"> {{ aboutHome.description }}</p>
         <router-link to="/about"
           class="flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-8xl underline w-min lg:w-full">About
           me <img src="../assets/arrow-upRight.svg" alt="arrow" class="no-underline w-min"></router-link>
@@ -98,11 +98,11 @@ onMounted(async () => {
         dive in.</p>
     </div>
 
-    <Swiper :modules="modules" v-bind="swiperOptions" class="h-96 w-full">
+    <Swiper :modules="modules" v-bind="swiperOptions" class="h-fit w-full">
 
       <SwiperSlide v-for="(item) in homeCards" :key="item._id">
         <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
-          <Card :title="item.title" :summary="item.summary" :image="item.imageUrl" :portofolio-id="item._id"
+          <Card :title="item.title" :summary="item.summary" :image="item.imageUrl" :portfolio-id="item._id"
             overlay-class="bg-orange-500">
             <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
               See more

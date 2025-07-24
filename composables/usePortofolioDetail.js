@@ -1,7 +1,7 @@
 import { fetchSanity, urlFor } from './useSanity'
 
-export const usePortofolioDetail = async (portofolioId) => {
-  const query = `*[_type == "portofolio" && _id == $portofolioId][0] {
+export const useportfolioDetail = async (portfolioId) => {
+  const query = `*[_type == "portfolio" && _id == $portfolioId][0] {
     _id,
     title,
     summary,
@@ -17,7 +17,7 @@ export const usePortofolioDetail = async (portofolioId) => {
     }
   }`
 
-  const data = await fetchSanity(query, { portofolioId })
+  const data = await fetchSanity(query, { portfolioId })
 
   if (!data) {
     return null

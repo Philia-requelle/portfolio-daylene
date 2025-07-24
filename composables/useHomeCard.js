@@ -1,7 +1,7 @@
 import { fetchSanity, urlFor } from './useSanity'
 
 export const useHomeCard = async () => {
-  const query = `*[_type == "portofolio"] | order(_createdAt desc)[0...5] {
+  const query = `*[_type == "portfolio"] | order(_createdAt desc)[0...5] {
     _id,
     title,
     summary,

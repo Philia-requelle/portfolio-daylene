@@ -5,7 +5,7 @@ const props = defineProps({
     title: String,
     summary: String,
     image: String,
-    portofolioId: {
+    portfolioId: {
         type: String,
         required: true
     },
@@ -17,9 +17,9 @@ const props = defineProps({
 </script>
 
 <template>
-    <router-link :to="{ name: 'portofolio-detail', params: { id: portofolioId } }"
-        class="block rounded-lg border adow-md overflow-hidden group relative">
-        <div class="relative">
+    <router-link :to="{ name: 'portfolio-detail', params: { id: portfolioId } }"
+        class="block rounded-lg border overflow-hidden relative group">
+        <div class="relative h-fit">
             <div class="relative h-64 overflow-hidden w-full md:w-[30rem]">
                 <img :src="image" :alt="title"
                     class="p-2 rounded-2xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
@@ -39,12 +39,3 @@ const props = defineProps({
         </div>
     </router-link>
 </template>
-
-<style scoped>
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-</style>
