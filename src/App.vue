@@ -10,7 +10,7 @@ import Navbar from './components/Navbar.vue';
   <main class="flex-grow">
     <RouterView />
   </main>
-  <footer class="relative flex flex-col items-center md:items-start gap-8 md:gap-20 py-8 text-black">
+  <footer class="relative flex flex-col items-center md:items-start gap-8 md:gap-20 py-4 text-black">
     <div class="flex flex-col items-center px-0 md:px-15 lg:px-30 md:items-start gap-8 md:gap-20 text-center md:text-left">
       <div class="">
         <p class="text-[2rem] md:text-7xl font-[LibreBodoni] italic">Have a Project in Mind?</p>
