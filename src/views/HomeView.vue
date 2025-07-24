@@ -20,7 +20,7 @@ const swiperOptions = {
   parallax: true,
   grabCursor: true,
   spaceBetween: 1,
-  slidesPerView: 'auto',
+  slidesPerView: 1,
   centeredSlides: true,
   autoplay: {
     delay: 3000,
@@ -102,8 +102,8 @@ onMounted(async () => {
 
       <SwiperSlide v-for="(item) in homeCards" :key="item._id">
         <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
-          <Card :title="item.title" :summary="item.summary" :image="item.imageUrl" :portfolio-id="item._id"
-            overlay-class="bg-orange-500">
+          <Card v-if="item.slug && item.slug.current" :title="item.title" :summary="item.summary" :image="item.imageUrl"
+            :portfolio-id="item.slug.current" overlay-class="bg-orange-500">
             <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
               See more
             </div>

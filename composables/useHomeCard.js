@@ -5,18 +5,22 @@ export const useHomeCard = async () => {
     _id,
     title,
     summary,
-    mainImage
+    mainImage,
+    slug {
+      current
+    },
   }`
 
   const data = await fetchSanity(query)
 
   return data.map(item => ({
     ...item,
-    imageUrl: urlFor(item.mainImage)
+    imageUrl: item.mainImage ? urlFor(item.mainImage)
       .width(400)
       .height(300)
       .fit('fill')
       .quality(85)
-      .url(),
+      .url() : null,
+    slug: item.slug && item.slug.current ? { current: item.slug.current } : { current: '' }
   }))
 }
