@@ -4,7 +4,7 @@ export const useAboutHome = async () => {
     const query = `*[_type == "about"][0] {
         aboutImage,
         aboutDescription,
-        }`;
+    }`;
 
     const data = await fetchSanity(query);
 
