@@ -93,15 +93,15 @@ onMounted(async () => {
   <!-- WORK PARALLAX SECTION -->
   <section class="h-screen w-full flex flex-col items-center justify-around">
     <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0 px-8">
-      <h2 class="text-8xl text-[#C35B3F]">My Work</h2>
+      <h2 class="text-8xl text-[#C35B3F] pt-12">My Work</h2>
       <p class="w-full lg:w-1/3">Fresh from the sketchbook—real problems I've tackled with design. Click any card to
         dive in.</p>
     </div>
 
-    <Swiper :modules="modules" v-bind="swiperOptions" class="h-fit w-full">
+    <Swiper :modules="modules" v-bind="swiperOptions" class="h-[46rem] w-full">
 
       <SwiperSlide v-for="(item) in homeCards" :key="item._id">
-        <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
+        <div data-swiper-parallax="-70" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
           <Card v-if="item.slug && item.slug.current" :title="item.title" :summary="item.summary" :image="item.imageUrl"
             :portfolio-id="item.slug.current" overlay-class="bg-orange-500">
             <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
