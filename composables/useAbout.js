@@ -1,4 +1,5 @@
 import { fetchSanity, urlFor } from "./useSanity";
+
 export const useAbout = async () => {
     const query = `*[_type == "about"][0] {
         aboutImage,
@@ -31,7 +32,7 @@ export const useAbout = async () => {
     const data = await fetchSanity(query);
 
     const formatDateToMonthYear = (dateString, isCurrent) => {
-        if (isCurrent) return 'Present'; // Jika isCurrent true, kembalikan 'Present'
+        if (isCurrent) return 'Present';
         if (!dateString) return '';
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
