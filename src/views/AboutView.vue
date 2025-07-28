@@ -19,7 +19,7 @@ onMounted(async () => {
           class="size-10 md:size-12 absolute right-0 top-90 lg:top-0 z-10" />
         <!-- === Mobile screen size layout === -->
         <div class="flex flex-col lg:hidden gap-12 w-full">
-          <h2 class="text-5xl">About Me</h2>
+          <h2 class="text-7xl lg:text-5xl">About Me</h2>
           <img :src="about.aboutImageUrl" alt="About image" class="object-cover w-auto max-w-50 mx-auto" />
           <p class="text-sm md:text-lg text-balance max-w-prose mx-auto">
             {{ about.description }}

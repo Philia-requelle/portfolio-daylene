@@ -14,7 +14,7 @@ onMounted(async () => {
     <div class="flex flex-col min-h-screen w-full px-4 pb-12">
         <div class="w-full max-w-7xl mx-auto">
             <h2 class="text-[#C35B3F] text-5xl md:text-7xl py-12">My Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-0 justify-items-center lg:[&>*:nth-child(3n-1)]:pt-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 lg:gap-0 justify-items-center lg:[&>*:nth-child(3n-1)]:pt-12">
                 <template v-for="item in workCards" :key="item.slug?.current">
                     <div v-if="item.slug && item.slug.current">
                         <Card :title="item.title" :summary="item.summary"
