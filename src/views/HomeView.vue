@@ -58,14 +58,14 @@ onMounted(async () => {
       class="absolute w-30 md:w-60 top-1/8 md:top-1/7 right-1/16 object-cover" />
     <!-- Down Left Image -->
     <img src="../assets/[2]-home.svg" alt="art image"
-      class="absolute w-20 h-20 left-1/20 bottom-3/7 md:bottom-2/5 lg:bottom-1/3 object-cover" />
+      class="absolute w-20 h-20 left-1/20 bottom-3/7 md:bottom-2/5 lg:bottom-2/5 object-cover" />
     <!-- Hero Text -->
-    <div class="relative flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center lg:text-start">
-      <div class="flex flex-col lg:flex-row gap-4 text-6xl md:text-8xl text-[#C35B3F]">
+    <div class="relative flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center md:text-start">
+      <div class="flex flex-col md:flex-row gap-4 text-6xl md:text-7xl lg:text-8xl text-[#C35B3F]">
         <span>Hello I'm </span>
         <span class="font-[LibreBodoni] italic text-black">Daylene</span>
       </div>
-      <div class="flex flex-col lg:flex-row gap-4 text-6xl md:text-8xl text-[#C35B3F] pl-0 lg:pl-20">
+      <div class="flex flex-col md:flex-row gap-4 text-6xl md:text-67xl lg:text-8xl text-[#C35B3F] pl-0 md:pl-20">
         <span>a</span>
         <span class="font-[LibreBodoni] italic">Creative Designer.</span>
       </div>
@@ -84,17 +84,17 @@ onMounted(async () => {
       <div class="flex flex-col items-center justify-center gap-12">
         <p class="text-2xl text-center lg:text-start text-wrap line-clamp-3"> {{ aboutHome.description }}</p>
         <router-link to="/about"
-          class="flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-8xl underline w-min lg:w-full">About
-          me <img src="../assets/arrow-upRight.svg" alt="arrow" class="no-underline w-min"></router-link>
+          class="flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-7xl underline w-full">About
+          me <img src="../assets/arrow-upRight.svg" alt="arrow" class="no-underline size-20 md:size-28"></router-link>
       </div>
     </div>
   </section>
 
   <!-- WORK PARALLAX SECTION -->
   <section class="h-screen w-full flex flex-col items-center justify-around">
-    <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0 px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 lg:gap-0 px-8">
       <h2 class="text-8xl text-[#C35B3F] pt-12">My Work</h2>
-      <p class="w-full lg:w-1/3">Fresh from the sketchbook—real problems I've tackled with design. Click any card to
+      <p class="w-full md:w-1/3">Fresh from the sketchbook—real problems I've tackled with design. Click any card to
         dive in.</p>
     </div>
 

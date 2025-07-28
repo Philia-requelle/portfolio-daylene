@@ -9,7 +9,7 @@ import CTAButton from '@/components/CTAButton.vue';
             <p class="text-7xl md:text-8xl pl-12 font-[LibreBodoni] italic">in Touch</p>
         </div>
         <img src="../assets/[2]-contact.svg" alt="a rectangle decoration" class="z-10 absolute size-6 top-1/48 lg:top-3/10 left-1/16 md:left-1/26 lg:left-1/30 -rotate-20">
-        <div class="absolute left-2/3 md:left-2/5 top-1/6 lg:top-2/12">
+        <div class="absolute left-2/3 md:left-2/5 top-1/6 lg:top-2/6">
             <img src="../assets/[1]-contact.svg" alt="an abstract rectangle decoration" class="z-10 absolute size-16 top-3/14 right-1/2">
             <img src="../assets/[2]-contact.svg" alt="a rectangle decoration" class="z-9 relative size-20 md:size-24 -rotate-20">
         </div>
