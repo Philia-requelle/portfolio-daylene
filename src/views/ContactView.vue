@@ -9,7 +9,8 @@ import CTAButton from '@/components/CTAButton.vue';
             <p class="text-6xl md:text-8xl pl-0 md:pl-12 font-[LibreBodoni] italic">in Touch</p>
         </div>
         <div class="flex flex-col gap-12">
-            <p class="text-2xl text-center md:text-start text-wrap">Whether you've got a question, a project idea, or just want to say hello, drop me a line and I'll be back in your inbox soon.</p>
+            <p class="text-2xl text-center md:text-start text-wrap">Whether you've got a question, a project idea, or
+                just want to say hello, drop me a line and I'll be back in your inbox soon.</p>
             <CTAButton name="Send Email" />
         </div>
     </div>
