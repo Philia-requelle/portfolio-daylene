@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, watch, nextTick } from 'vue' // Import nextTick
+import { ref, onMounted, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useportfolioDetail } from '../../composables/useportfolioDetail'
+import { useportfolioDetail } from '../../composables/usePortfolioDetail'
 
 const route = useRoute()
 const router = useRouter()
