@@ -3,8 +3,8 @@ import { ref, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Parallax, Autoplay } from 'swiper/modules'
 import Card from '../components/Card.vue'
-import { useAboutHome } from '../../composables/useAboutHome'
 import { useHomeCard } from '../../composables/useHomeCard'
+import { useAboutHome } from '../../composables/useAboutHome'
 import 'swiper/css'
 import 'swiper/css/parallax'
 import 'swiper/css/autoplay'
@@ -52,42 +52,44 @@ onMounted(async () => {
       <!-- Decorative: Top Center Square -->
       <div class="flex relative">
         <div class="bg-conic-10 from-terracotta from-10% to-light-pink size-14 md:size-21"></div>
-        <div class="absolute z-10 size-8 md:size-10 top-4 md:top-9 left-2 bg-light-pink opacity-90 rounded-md"></div>
+        <div class="absolute z-10 size-8 md:size-10 top-4 md:top-9 left-2 bg-light-pink opacity-90"></div>
       </div>
       <!-- Top Right Image -->
       <img src="../assets/[1]-home.svg" alt="nature image"
-        class="justfiy-self-start-safe md:justify-self-end-safe w-30 md:w-56 object-cover" />
+        class="justify-self-start-safe sm:justify-self-end-safe w-30 md:w-46 lg:w-56 object-cover" />
       <!-- Down Left Image -->
-      <img src="../assets/[2]-home.svg" alt="art image" class="self-center size-20 object-cover" />
+      <img src="../assets/[2]-home.svg" alt="art image"
+        class="justify-self-start !mt-8 md:!mt-14 size-14 md:size-16 lg:size-20 object-cover" />
       <!-- Bottom Center Square -->
-      <div class="col-start-2 row-start-3 self-end size-10 p-8 bg-light-pink"></div>
+      <div class="col-start-2 row-start-3 size-10 self-end md:self-center bg-light-pink"></div>
     </div>
 
     <!-- Hero Text -->
-    <div class="flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center md:text-start text-[var(--color-terracotta)]">
-      <div class="flex flex-col md:flex-row gap-4 text-6xl md:text-7xl lg:text-8xl hero-text-accent">
+    <div
+      class="text-5xl sm:text-6xl md:text-7xl flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center md:text-start text-[var(--color-terracotta)]">
+      <div class="flex flex-col md:flex-row gap-4">
         <span>Hello I'm </span>
-        <span class="font-[LibreBodoni] italic hero-text-heading">Daylene</span>
+        <span class="font-[LibreBodoni] italic">Daylene</span>
       </div>
-      <div class="flex flex-col md:flex-row gap-4 text-6xl md:text-67xl lg:text-8xl hero-text-accent pl-0 md:pl-20">
+      <div class="flex flex-col sm:flex-row gap-4 pl-0 md:pl-20 lg:pl-20">
         <span>a</span>
         <span class="font-[LibreBodoni] italic">Creative Designer.</span>
       </div>
       <div>
-        <span class="text-5xl md:text-7xl hero-text-accent">Based on Indonesia</span>
+        <span>Based on Indonesia</span>
       </div>
     </div>
 
   </section>
 
   <!-- ABOUT SUMMARY SECTION -->
-  <section class="about-section text-white bg-terracotta px-14 w-full flex flex-col items-center justify-center">
-    <div class="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
-      <img :src="aboutHome.aboutImageUrl" alt="About Daylene" class="w-auto object-cover" />
-      <div class="flex flex-col items-center justify-center gap-12">
-        <p class="text-2xl text-center lg:text-start text-wrap line-clamp-3">{{ aboutHome.description }}</p>
+  <section class="text-white bg-terracotta px-14 w-full flex flex-col items-center justify-center">
+    <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-20">
+      <img :src="aboutHome.aboutImageUrl" alt="About Daylene" class="w-50 md:w-auto object-cover" />
+      <div class="flex flex-col items-center justify-center gap-8">
+        <p class="text-2xl md:text-md text-center md:text-start text-wrap line-clamp-3">{{ aboutHome.description }}</p>
         <router-link to="/about"
-          class="about-link flex flex-row gap-2 items-center justify-center lg:justify-start md:gap-8 text-5xl md:text-7xl no-underline hover:underline w-full">
+          class="flex flex-row gap-2 md:gap-0 lg:gap-4 items-center justify-center md:justify-start text-5xl lg:text-7xl no-underline hover:underline w-full">
           About me
           <img src="../assets/arrow-upRight.svg" alt="" class="no-underline size-20 md:size-28" aria-hidden="true">
         </router-link>
@@ -106,9 +108,9 @@ onMounted(async () => {
 
     <Swiper :modules="modules" v-bind="swiperOptions" class="h-[46rem] w-full">
       <SwiperSlide v-for="(item) in homeCards" :key="item._id">
-        <div data-swiper-parallax="-70" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
+        <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
           <Card v-if="item.slug && item.slug.current" :title="item.title" :summary="item.summary" :image="item.imageUrl"
-            :portfolio-id="item.slug.current" overlay-class="bg-terracotta" class="w-auto md:w-[26rem]">
+            :portfolio-id="item.slug.current" overlay-class="bg-terracotta" class="w-auto md:w-[30rem]">
             <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
               See more
             </div>

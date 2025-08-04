@@ -3,7 +3,7 @@ import CTAButton from './CTAButton.vue';
 </script>
 <template>
     <div
-        class="flex flex-col items-center px-15 md:items-start gap-8 md:gap-20 text-center md:text-left">
+        class="flex flex-col items-center px-0 md:px-15 md:items-start gap-8 md:gap-20 text-center md:text-left">
         <div>
             <p class="text-5xl md:text-7xl font-[LibreBodoni] italic">Have a Project in Mind?</p>
             <p class="text-wrap text-xl/8 md:text-5xl/14">

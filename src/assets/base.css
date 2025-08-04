@@ -49,5 +49,5 @@ section {
 
 button,
 a {
-  @apply !cursor-pointer;
+ cursor: pointer !important;
 }
