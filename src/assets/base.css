@@ -44,7 +44,7 @@ body {
 }
 
 section {
-  @apply h-screen;
+  @apply min-h-screen w-full;
 }
 
 button,

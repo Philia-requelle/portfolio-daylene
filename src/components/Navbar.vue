@@ -65,16 +65,16 @@ onUnmounted(() => {
 })
 
 // Helper function to get nav link classes
-const getNavLinkClasses = (routeName, isLastItem = false) => {
-    if (isActive(routeName)) {
-        return `text-terracotta ${ isLastItem ? 'text-terracotta' : 'text-black' }`
-    }
-}
+const getNavLinkClasses = (routeName) => {
+    const activeClass = isActive(routeName) ? 'text-terracotta' : 'text-black';
+    const hoverClass = 'hover:text-terracotta';
+    return `${ activeClass } ${ hoverClass }`;
+};
 </script>
 
 <template>
     <nav class="relative z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
 
                 <!-- Mobile: Hamburger Button (left) -->
@@ -137,15 +137,20 @@ const getNavLinkClasses = (routeName, isLastItem = false) => {
                         </svg>
                     </button>
                 </div>
-
-                <!-- Menu Items -->
-                <div class="px-4 py-6 space-y-3">
-                    <router-link v-for="(item, index) in navItems" :key="item.name" :to="{ name: item.routeName }"
-                        @click="closeMobileMenu"
-                        class="cursor-pointer w-fit flex items-center px-4 py-3 text-3xl transition-colors duration-200 last:border last:rounded-[100%]"
-                        :class="getNavLinkClasses(item.routeName, index === navItems.length - 1)">
-                        {{ item.label }}
-                    </router-link>
+                <!-- Mobile nav-link -->
+                <div class="px-4 py-6 flex flex-col gap-8">
+                    <div v-for="(item, index) in navItems" :key="item.name" class="w-full">
+                        <router-link :to="{ name: item.routeName }" @click="closeMobileMenu" :class="[
+                            'cursor-pointer flex items-center px-4 py-3 text-3xl transition-colors duration-200',
+                            {
+                                'border border-black rounded-[100%] w-fit': index === navItems.length - 1,
+                                'hover:border-terracotta': index === navItems.length - 1
+                            },
+                            getNavLinkClasses(item.routeName)
+                        ]">
+                            {{ item.label }}
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>
