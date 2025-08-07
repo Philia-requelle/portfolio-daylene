@@ -44,7 +44,7 @@ onMounted(async () => {
 <template>
   <!-- HERO SECTION -->
   <section class="relative flex flex-col justify-center items-center lg:items-start h-screen w-full px-4 md:px-8">
-    <div class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-webkit-fill-available]"
+    <div class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-moz-available]"
       aria-hidden="true">
       <!-- Decorative: Top Left Square -->
       <div class="bg-radial from-light-pink from-10% to-terracotta size-10 rounded-lg">

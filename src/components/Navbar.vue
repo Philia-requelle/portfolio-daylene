@@ -63,13 +63,6 @@ onUnmounted(() => {
     document.removeEventListener('keydown', handleEscape)
     document.body.style.overflow = 'unset'
 })
-
-// Helper function to get nav link classes
-const getNavLinkClasses = (routeName) => {
-    const activeClass = isActive(routeName) ? 'text-terracotta' : 'text-black';
-    const hoverClass = 'hover:text-terracotta';
-    return `${ activeClass } ${ hoverClass }`;
-};
 </script>
 
 <template>
@@ -106,10 +99,17 @@ const getNavLinkClasses = (routeName) => {
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="flex items-center gap-3">
-                        <router-link
-                            class="cursor-pointer px-3 py-2 text-lg transition-colors duration-200 last:border last:rounded-[100%]"
-                            v-for="(item, index) in navItems" :key="item.name" :to="{ name: item.routeName }"
-                            :class="getNavLinkClasses(item.routeName, index === navItems.length - 1)">
+                        <router-link class="cursor-pointer px-3 py-2 text-lg transition-colors duration-200"
+                            v-for="(item, index) in navItems" :key="item.name" :to="{ name: item.routeName }" :class="{
+                                // Text color logic: active is terracotta, default is black with terracotta on hover
+                                'text-terracotta': isActive(item.routeName),
+                                'text-black hover:text-terracotta': !isActive(item.routeName),
+
+                                // Border logic for the last item
+                                'border rounded-[100%]': index === navItems.length - 1,
+                                'border-terracotta': index === navItems.length - 1 && isActive(item.routeName),
+                                'border-black hover:border-terracotta': index === navItems.length - 1 && !isActive(item.routeName)
+                            }">
                             {{ item.label }}
                         </router-link>
                     </div>
@@ -143,10 +143,15 @@ const getNavLinkClasses = (routeName) => {
                         <router-link :to="{ name: item.routeName }" @click="closeMobileMenu" :class="[
                             'cursor-pointer flex items-center px-4 py-3 text-3xl transition-colors duration-200',
                             {
-                                'border border-black rounded-[100%] w-fit': index === navItems.length - 1,
-                                'hover:border-terracotta': index === navItems.length - 1
-                            },
-                            getNavLinkClasses(item.routeName)
+                                // Text color logic: active is terracotta, default is black with terracotta on hover
+                                'text-terracotta': isActive(item.routeName),
+                                'text-black hover:text-terracotta': !isActive(item.routeName),
+
+                                // Border logic for the last item
+                                'border rounded-[100%] w-fit': index === navItems.length - 1,
+                                'border-terracotta': index === navItems.length - 1 && isActive(item.routeName),
+                                'border-black hover:border-terracotta': index === navItems.length - 1 && !isActive(item.routeName)
+                            }
                         ]">
                             {{ item.label }}
                         </router-link>

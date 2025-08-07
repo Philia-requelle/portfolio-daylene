@@ -16,7 +16,7 @@ onMounted(async () => {
     <section class="bg-terracotta text-white px-6 md:px-14 flex items-center justify-center">
       <div class="relative flex flex-col lg:flex-row gap-10 lg:gap-20 max-w-6xl w-full items-center lg:items-start">
         <img src="../assets/[5]-about.svg" alt="Circle decoration"
-          class="size-10 md:size-12 absolute right-0 md:right-1/2 lg:top-0 z-10" />
+          class="absolute size-10 md:size-12 right-0 md:right-1/2 lg:right-0 lg:top-0 z-10" />
         <!-- === Mobile screen size layout === -->
         <div class="flex flex-col gap-4 md:gap-8 lg:hidden w-full">
           <h2 class="text-4xl md:text-5xl">About Me</h2>
