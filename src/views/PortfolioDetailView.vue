@@ -76,13 +76,13 @@ const goToNextPortfolio = () => {
     <div class="min-h-screen w-full flex flex-col items-center px-8 py-12 relative">
         <!-- Loading component to fetch portfolio content -->
         <div v-if="loading" class="flex justify-center items-center h-screen">
-            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-[#C35B3F]"></div>
+            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-terracotta"></div>
         </div>
         <!-- Error component when failed to fetch portfolio content -->
         <div v-else-if="error" class="flex flex-col justify-center items-center h-screen">
-            <h1 class="text-4xl text-[#C35B3F] mb-4">{{ error }}</h1>
+            <h1 class="text-4xl text-terracotta mb-4">{{ error }}</h1>
             <button @click="goBack"
-                class="px-6 py-3 bg-[#C35B3F] text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                class="px-6 py-3 bg-terracotta text-white rounded-lg hover:bg-opacity-90 transition-colors">
                 Back
             </button>
         </div>
@@ -98,7 +98,7 @@ const goToNextPortfolio = () => {
             <div class="flex flex-col gap-8">
                 <div
                     class="flex flex-col lg:flex-row justify-between items-center text-center lg:text-start gap-4 lg:gap-52">
-                    <h1 class="text-4xl md:text-6xl text-[#C35B3F] text-wrap">
+                    <h1 class="text-4xl md:text-6xl text-terracotta text-wrap">
                         {{ portfolio.title }}
                     </h1>
                     <p class="text-wrap">
@@ -168,7 +168,7 @@ const goToNextPortfolio = () => {
                 </button>
 
                 <button @click="goToNextPortfolio" :disabled="!portfolio || !portfolio.nextPortfolioSlug"
-                    class="flex gap-4 items-center text-xl md:text-3xl text-[#C35B3F] hover:underline"
+                    class="flex gap-4 items-center text-xl md:text-3xl text-terracotta hover:underline"
                     :class="{ 'opacity-50 cursor-not-allowed': !portfolio || !portfolio.nextPortfolioSlug }">
                     Next
                     <img src="../assets/next-arrow.svg" alt="Next arrow" class="size-6 md:size-10">
@@ -179,18 +179,13 @@ const goToNextPortfolio = () => {
 </template>
 
 <style scoped>
+@import 'tailwindcss';
 .portfolio-content {
     p {
-        color: #525252;
-        font-size: 1rem;
+       @apply text-base;
     }
     h3 {
-        color: #3D2B27;
-        font-weight: 700;
+        @apply !font-bold;
     }
-}
-
-.whitespace-pre-line {
-    white-space: pre-line;
 }
 </style>

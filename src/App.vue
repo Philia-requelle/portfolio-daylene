@@ -12,7 +12,7 @@ import Footer from './components/Footer.vue';
   <main class="flex-grow">
     <RouterView />
   </main>
-  <footer class="relative flex flex-col items-center md:items-start gap-8 md:gap-20 py-4 text-black">
+  <footer class="relative flex flex-col items-center md:items-start gap-8 md:gap-20 pt-8 pb-4">
     <Footer/>
   </footer>
 </template>
