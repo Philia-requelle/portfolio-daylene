@@ -29,7 +29,7 @@ onMounted(async () => {
                 <template v-for="item in workCards" :key="item.slug?.current">
                     <div v-if="item.slug && item.slug.current">
                         <Card :title="item.title" :summary="item.summary" :image="item.imageUrl"
-                            :portfolio-id="item.slug.current" overlay-class="backdrop-blur-md bg-opacity-80"
+                            :portfolio-id="item.slug.current" overlay-class="backdrop-blur-md bg-gray-500/40"
                             class="max-w-80 cursor-pointer">
                         </Card>
                     </div>
