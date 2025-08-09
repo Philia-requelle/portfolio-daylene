@@ -43,30 +43,29 @@ onMounted(async () => {
 
 <template>
   <!-- HERO SECTION -->
-  <section class="relative flex flex-col justify-center items-center lg:items-start h-screen w-full px-4 md:px-8">
-    <div class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-moz-available]"
-      aria-hidden="true">
+  <section class="relative flex flex-col justify-center items-center lg:items-start px-4 md:px-8">
+    <div class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-webkit-fill-available]" aria-hidden="true">
       <!-- Decorative: Top Left Square -->
-      <div class="bg-radial from-light-pink from-10% to-terracotta size-10 rounded-lg">
+      <div class="bg-radial from-light-pink from-10% to-terracotta size-10">
       </div>
       <!-- Decorative: Top Center Square -->
-      <div class="flex relative">
+      <div class="flex relative lg:justify-self-center">
         <div class="bg-conic-10 from-terracotta from-10% to-light-pink size-14 md:size-21"></div>
         <div class="absolute z-10 size-8 md:size-10 top-4 md:top-9 left-2 bg-light-pink opacity-90"></div>
       </div>
       <!-- Top Right Image -->
       <img src="../assets/[1]-home.svg" alt="nature image"
-        class="justify-self-start-safe sm:justify-self-end-safe w-30 md:w-46 lg:w-56 object-cover" />
+        class="justify-self-start-safe sm:justify-self-end-safe w-30 md:w-46 lg:w-60 object-cover" />
       <!-- Down Left Image -->
       <img src="../assets/[2]-home.svg" alt="art image"
-        class="justify-self-start !mt-8 md:!mt-14 size-14 md:size-16 lg:size-20 object-cover" />
+        class="justify-self-center md:justify-self-start lg:justify-self-center self-start !mt-8 md:!mt-14 xl:!mt-18 size-14 md:size-18 object-cover" />
       <!-- Bottom Center Square -->
-      <div class="col-start-2 row-start-3 size-10 self-end md:self-center bg-light-pink"></div>
+      <div class="col-start-2 row-start-3 size-10 self-end md:self-center lg:justify-self-center bg-light-pink"></div>
     </div>
 
     <!-- Hero Text -->
     <div
-      class="text-5xl sm:text-6xl md:text-7xl flex flex-col gap-2 z-10 pl-0 lg:pl-20 text-center md:text-start text-[var(--color-terracotta)]">
+      class="flex flex-col !mx-auto gap-2 z-10 pl-0 lg:pl-20 text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-center md:text-start text-[var(--color-terracotta)]">
       <div class="flex flex-col md:flex-row gap-4">
         <span>Hello I'm </span>
         <span class="font-[LibreBodoni] italic">Daylene</span>
