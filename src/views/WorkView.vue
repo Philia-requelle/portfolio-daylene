@@ -16,7 +16,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="flex flex-col min-h-screen w-full px-4 pb-12">
+    <div class="flex flex-col min-h-screen w-full px-4 pb-16">
         <div class="w-full max-w-7xl mx-auto">
             <h2 class="text-terracotta text-5xl md:text-7xl py-12">My Work</h2>
             <!-- Loading message -->
@@ -29,7 +29,7 @@ onMounted(async () => {
                 <template v-for="item in workCards" :key="item.slug?.current">
                     <div v-if="item.slug && item.slug.current">
                         <Card :title="item.title" :summary="item.summary" :image="item.imageUrl"
-                            :portfolio-id="item.slug.current" overlay-class="backdrop-blur-md bg-opacity-80"
+                            :portfolio-id="item.slug.current" overlay-class="backdrop-blur-md bg-gray-500/40"
                             class="max-w-80 cursor-pointer">
                         </Card>
                     </div>
