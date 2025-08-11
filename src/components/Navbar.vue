@@ -67,7 +67,7 @@ onUnmounted(() => {
 
 <template>
     <nav class="relative z-50">
-        <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 h-20 flex flex-col justify-center">
             <div class="flex justify-between items-center h-16">
 
                 <!-- Mobile: Hamburger Button (left) -->

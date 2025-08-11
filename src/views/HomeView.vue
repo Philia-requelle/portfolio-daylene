@@ -44,7 +44,9 @@ onMounted(async () => {
 <template>
   <!-- HERO SECTION -->
   <section class="relative flex flex-col justify-center items-center lg:items-start px-4 md:px-8">
-    <div class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-webkit-fill-available]" aria-hidden="true">
+    <div
+      class="absolute grid grid-cols-3 grid-rows-3 grid-flow-row-dense h-screen p-8 w-[-moz-available] w-[-webkit-fill-available]"
+      aria-hidden="true">
       <!-- Decorative: Top Left Square -->
       <div class="bg-radial from-light-pink from-10% to-terracotta size-10">
       </div>
@@ -58,7 +60,7 @@ onMounted(async () => {
         class="justify-self-start-safe sm:justify-self-end-safe w-30 md:w-46 lg:w-60 object-cover" />
       <!-- Down Left Image -->
       <img src="../assets/[2]-home.svg" alt="art image"
-        class="justify-self-center md:justify-self-start lg:justify-self-center self-start !mt-8 md:!mt-14 xl:!mt-18 size-14 md:size-18 object-cover" />
+        class="justify-self-center md:justify-self-start lg:justify-self-center self-start !mt-8 md:!mt-16 xl:!mt-18 size-14 md:size-18 object-cover" />
       <!-- Bottom Center Square -->
       <div class="col-start-2 row-start-3 size-10 self-end md:self-center lg:justify-self-center bg-light-pink"></div>
     </div>
@@ -97,7 +99,7 @@ onMounted(async () => {
   </section>
 
   <!-- WORK PARALLAX SECTION -->
-  <section class="flex flex-col w-full items-center gap-12 pt-12">
+  <section class="flex flex-col w-full items-center justify-center gap-20 py-12">
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 lg:gap-0 px-8">
       <h2 class="text-terracotta text-8xl">My Work</h2>
       <p class="text-gray-500 w-full md:w-1/3">Fresh from the sketchbook—real problems I've tackled with design.
@@ -105,11 +107,11 @@ onMounted(async () => {
         dive in.</p>
     </div>
 
-    <Swiper :modules="modules" v-bind="swiperOptions" class="h-[46rem] w-full">
-      <SwiperSlide v-for="(item) in homeCards" :key="item._id">
+    <Swiper :modules="modules" v-bind="swiperOptions" class="w-full">
+      <SwiperSlide v-for="(item) in homeCards" :key="item._id" class="flex items-start py-8">
         <div data-swiper-parallax="-100" data-swiper-parallax-duration="1000" data-swiper-parallax-scale="0.8">
           <Card v-if="item.slug && item.slug.current" :title="item.title" :summary="item.summary" :image="item.imageUrl"
-            :portfolio-id="item.slug.current" overlay-class="bg-terracotta" class="w-auto md:w-[30rem]">
+            :portfolio-id="item.slug.current" overlay-class="bg-terracotta" class="w-auto md:w-96">
             <div class="absolute inset-0 flex justify-center items-center text-white text-2xl">
               See more
             </div>

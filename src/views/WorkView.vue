@@ -16,7 +16,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="flex flex-col min-h-screen w-full px-4 pb-12">
+    <div class="flex flex-col min-h-screen w-full px-4 pb-16">
         <div class="w-full max-w-7xl mx-auto">
             <h2 class="text-terracotta text-5xl md:text-7xl py-12">My Work</h2>
             <!-- Loading message -->

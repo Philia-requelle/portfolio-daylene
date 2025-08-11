@@ -4,7 +4,7 @@ import CTAButton from '@/components/CTAButton.vue';
 
 <template>
     <div
-        class="relative w-full h-fit lg:h-screen p-8 grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-30 justify-center items-center">
+        class="relative w-full h-fit lg:h-screen px-8 py-8 lg:py-0 grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-30 justify-center items-center">
         <div
             class="absolute z-10 grid grid-cols-2 sm:grid-cols-3 grid-rows-3 grid-flow-row-dense h-[-webkit-fill-available] px-8 w-full">
             <img src="../assets/[2]-contact.svg" alt="a rectangle decoration"
